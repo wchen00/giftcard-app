@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="awsWebService:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="awsWebService.war">
-      <element id="artifact" artifact-name="awsWebService:war exploded" />
-    </root>
-  </artifact>
-</component>
