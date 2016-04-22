@@ -21,4 +21,17 @@ public class HelloWorldController {
         return "index";
     }
 
+
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String home(ModelMap model) {
+        model.addAttribute("home", "Home");
+        return "home";
+    }
+
+    @RequestMapping(value = "/mobile", method = RequestMethod.GET)
+    public String mobile(ModelMap model) {
+        model.addAttribute("mobile", "Mobile");
+        return "mobile";
+    }
+
 }
