@@ -106,9 +106,9 @@ public class UserDao  {
             user.setId(rs.getInt("id"));
             user.setUserName(rs.getString("userName"));
             user.setPassword(rs.getString("password"));
-            user.setBhnCredit(rs.getString("bhnCredit"));
+            user.setBhnCredit(rs.getInt("bhnCredit"));
             user.setCreditCardNumber(rs.getString("creditCardNumber"));
-            user.setCvv(rs.getString("cvv"));
+            user.setCvv(rs.getInt("cvv"));
             user.setMonth(rs.getString("month"));
             user.setYear(rs.getString("year"));
 

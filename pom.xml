@@ -12,7 +12,7 @@
         <object.mapper.version>2.6.3</object.mapper.version>
     </properties>
 
-    <>
+    <dependencies>
 
         <!-- Spring 4 dependencies -->
         <dependency>
