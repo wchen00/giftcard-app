@@ -65,7 +65,7 @@ public class UserDao  {
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
         String sql = "INSERT INTO USERS(ID, USERNAME, PASSWORD, PHONE_NUMBER, CREDIT_CARD_NUMBER, CVV, MONTH, YEAR, BHN_CREDIT) "
-                + "VALUES ( :id, :username, :password, :phoneNumber, :creditCardNumber, :cvv, :month, :year, :bhnCredit)";
+                + "VALUES ( :id, :userName, :password, :phoneNumber, :creditCardNumber, :cvv, :month, :year, :bhnCredit)";
 
         namedParameterJdbcTemplate.update(sql, getSqlParameterByModel(user), keyHolder);
         user.setId(keyHolder.getKey().intValue());
@@ -103,14 +103,14 @@ public class UserDao  {
 
         public User mapRow(ResultSet rs, int rowNum) throws SQLException {
             User user = new User();
-            user.setId(rs.getInt("id"));
-            user.setUserName(rs.getString("userName"));
-            user.setPassword(rs.getString("password"));
-            user.setBhnCredit(rs.getString("bhnCredit"));
-            user.setCreditCardNumber(rs.getString("creditCardNumber"));
-            user.setCvv(rs.getString("cvv"));
-            user.setMonth(rs.getString("month"));
-            user.setYear(rs.getString("year"));
+            user.setId(rs.getInt("ID"));
+            user.setUserName(rs.getString("USERNAME"));
+            //user.setPassword(rs.getString("password"));
+            user.setBhnCredit(rs.getInt("BHN_CREDIT"));
+            user.setCreditCardNumber(rs.getString("CREDIT_CARD_NUMBER"));
+           // user.setCvv(rs.getInt("cvv"));
+           // user.setMonth(rs.getString("month"));
+           // user.setYear(rs.getString("year"));
 
             return user;
         }
