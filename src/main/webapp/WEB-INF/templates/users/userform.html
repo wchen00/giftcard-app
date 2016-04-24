@@ -1,10 +1,107 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" xmlns:th="http://www.thymeleaf.org"><![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en" xmlns:th="http://www.thymeleaf.org"><![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie10 lt-ie9" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 9]>
+<html class="no-js lt-ie10" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:spring="http://java.sun.com/xml/ns/javaee"
+      xmlns:form="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+    <title>Cha Ching</title>
+    <meta name="description" content=""/>
+    <meta name="author" content="Blackhawk Network"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic"/>
+    <link rel="stylesheet" type="text/css" href="/giftcardApp/library/jquery-ui-1.11.2-smoothness/jquery-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/giftcardApp/library/datatables-1.10.8/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/giftcardApp/library/datatables-1.10.8/css/buttons.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/giftcardApp/library/datetimepicker-2.4.1/jquery.datetimepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="/giftcardApp/library/tipTip-1.3/tipTip.css"/>
+    <link rel="stylesheet" type="text/css" href="/giftcardApp/css/global.css?v=20150729"/>
+    <link rel="stylesheet" type="text/css" href="/giftcardApp/css/layout.css?v=20150729"/>
+    <link rel="stylesheet" type="text/css" href="/giftcardApp/css/cardinventory.css?v=20150729"/>
+    <script src="/giftcardApp/library/modernizr-2.5.3/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+    <script src="/giftcardApp/library/html5shiv-3.7.2/html5shiv.min.js"></script>
+    <script src="/giftcardApp/library/jquery-1.11.2/jquery.min.js"></script>
+    <script src="/giftcardApp/library/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+    <script src="/giftcardApp/library/datatables-1.10.8/js/jquery.dataTables.min.js"></script>
+    <script src="/giftcardApp/library/datatables-1.10.8/js/dataTables.buttons.min.js"></script>
+    <script src="/giftcardApp/library/datatables-1.10.8/js/buttons.colVis.min.js"></script>
+    <script src="/giftcardApp/library/datetimepicker-2.4.1/jquery.datetimepicker.js"></script>
+    <script src="/giftcardApp/library/tipTip-1.3/jquery.tipTip.min.js"></script>
+    <script src="/giftcardApp/library/simplemodal-1.4.4/jquery.simplemodal.min.js"></script>
+    <script src="/giftcardApp/library/uitotop/jquery.ui.totop.js"></script>
 </head>
+<html lang="en">
+
 <body>
+<h1>Share Gift</h1>
+<div class="container">
+
+    <th:choose>
+        <th:when test="${userForm['new']}">
+            <h1>Add User</h1>
+        </th:when>
+        <th:otherwise>
+            <h1>Update User</h1>
+        </th:otherwise>
+    </th:choose>
+    <br />
+
+    <form class="form-horizontal" method="post"
+               action="/giftcardApp/user/add" >
+
+        <div th:object="${user}">
+
+        <spring:bind path="shareFrom">
+            <div>
+                <label>shareFrom</label>
+                <input path="shareFrom"
+                           id="shareFrom" placeholder="shareFrom" th:field="*{shareFrom}"/>
+            </div>
+        </spring:bind>
+
+        <spring:bind path="userName">
+            <div>
+                <label>Name</label>
+                <input path="userName" type="text" id="userName" placeholder="userName"
+                       th:field="*{userName}"/>
+            </div>
+        </spring:bind>
+
+        <spring:bind path="phoneNumber">
+            <div >
+                <label>Number</label>
+                <input path="phoneNumber" type="text" id="phoneNumber" placeholder="phoneNumber"
+                       th:field="*{phoneNumber}" />
+            </div>
+        </spring:bind>
+
+        <spring:bind path="bhnCredit">
+            <div>
+                <label>BhnCredit</label>
+                <input path="bhnCredit" type="text" id="bhnCredit" placeholder="bhnCredit"
+                       th:field="*{bhnCredit}"/>
+            </div>
+        </spring:bind>
+
+        <div>
+            <button type="submit">Share</button>
+        </div>
+            </div>
+
+    </form>
+
+</div>
 
 </body>
 </html>
