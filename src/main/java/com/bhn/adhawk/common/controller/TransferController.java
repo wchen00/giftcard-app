@@ -27,7 +27,7 @@ public class TransferController {
                     @QueryParam("amount") String amount,
                     Model model) {
 
-        transferService.transfer(Integer.valueOf(senderId), Integer.valueOf(receiverId), Double.valueOf(amount));
+        transferService.transfer(senderId, receiverId, Double.valueOf(amount));
 
         return "success";
 

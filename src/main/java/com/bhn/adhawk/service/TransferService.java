@@ -22,7 +22,7 @@ public class TransferService {
     }
 
 
-    public void transfer(Integer senderPhone, Integer receiverPhone, Double amount) {
+    public void transfer(String senderPhone, String receiverPhone, Double amount) {
 //        User user_1 = userService.findById(senderId);
 //        user_1.bhnCredit -= amount;
 //        User user_2 = userService.findById(senderId);

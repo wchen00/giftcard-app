@@ -1,7 +1,6 @@
 package com.bhn.adhawk.common.controller;
 
 import com.bhn.adhawk.beans.Request;
-import com.bhn.adhawk.beans.User;
 import com.bhn.adhawk.service.SmsService;
 import com.bhn.adhawk.service.TransferService;
 import com.bhn.adhawk.service.UserService;
@@ -42,7 +41,7 @@ public class ContactController {
         String friendPhone = request.getPhonenumber();
         String amount = request.getAmount();
         String currentID = (String) modelMap.get("currentID");
-        transferService.transfer(Integer.valueOf(currentID), Integer.valueOf(friendPhone), Double.valueOf(amount));
+        transferService.transfer(currentID, friendPhone, Double.valueOf(amount));
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 // Get the date today using Calendar object.
         Date today = Calendar.getInstance().getTime();
@@ -64,7 +63,7 @@ public class ContactController {
             @QueryParam("message") String message,
             @QueryParam("amount") double amount,
             ModelMap modelMap) {
-        int currentID = (Integer) modelMap.get("currentID");
+        String currentID = (String) modelMap.get("currentID");
         String friendPhoneNumber = (String) modelMap.get("friendPhoneNumber");
         try {
             smsService.sendSMS(friendPhoneNumber, message);
@@ -90,15 +89,15 @@ public class ContactController {
     }
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String getIndexPage(@QueryParam("phoneNumber") String phoneNumber, ModelMap modelMap) {
-        int currentID;
-        currentID = userService.findByPhone(phoneNumber).getId();
-        if (currentID == 0)
-            currentID = userService.CreateUserByPhone(phoneNumber);
-        modelMap.addAttribute("currentID", currentID);
-        return "chat";
-    }
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public String getIndexPage(@QueryParam("phoneNumber") String phoneNumber, ModelMap modelMap) {
+//        String currentID;
+//        currentID = userService.findByPhone(phoneNumber).getId();
+//        if (currentID == null)
+//            currentID = userService.CreateUserByPhone(phoneNumber);
+//        modelMap.addAttribute("currentID", currentID);
+//        return "chat";
+//    }
 
 
 }
