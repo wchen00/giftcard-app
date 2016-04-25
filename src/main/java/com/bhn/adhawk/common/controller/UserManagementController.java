@@ -22,13 +22,34 @@ public class UserManagementController {
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public String showAllAdHawkUsers(Model model) {
 
+        if(userService.findAll().size() <= 0) {
+            addUsers();
+        }
         model.addAttribute("users", userService.findAll());
+
         return "users/list";
+    }
+
+    private void addUsers() {
+
+        User user1 = new User();
+        user1.setPhoneNumber("999-999-9999");
+        user1.setUserName("user1");
+        user1.setBhnCredit(1000);
+        userService.save(user1);
+
+
+        User user2 = new User();
+        user2.setPhoneNumber("888-888-8888");
+        user2.setUserName("user2");
+        user2.setBhnCredit(500);
+
+        userService.save(user2);
     }
 
     // show update form
     @RequestMapping(value = "/share", method = RequestMethod.GET)
-    public String shareBhnCredit(@QueryParam("id") int id, Model model) {
+    public String shareBhnCredit(@QueryParam("id") String id, Model model) {
 
         System.out.println("shareBhnCredit : user to find :"+id);
         User user = userService.findById(id);
@@ -45,8 +66,8 @@ public class UserManagementController {
     public String saveAndUpdateCredit(@ModelAttribute(value="user") User user, Model model) {
 
         System.out.println("user "+user.getBhnCredit()+":"+user.getPhoneNumber()+":"+user.getShareFrom());
-
         userService.saveOrUpdate(user);
+
         return "users/userform";
 
     }

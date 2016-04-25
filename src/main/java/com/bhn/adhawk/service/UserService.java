@@ -21,7 +21,7 @@ public class UserService {
         this.userDao = userDao;
     }
 
-    public User findById(Integer id) {
+    public User findById(String id) {
         return userDao.findById(id);
     }
 
@@ -31,6 +31,11 @@ public class UserService {
 
     public List<User> findAll() {
         return userDao.findAll();
+    }
+
+    public void save(User user)
+    {
+        userDao.save(user);
     }
 
     public void saveOrUpdate(User user) {
