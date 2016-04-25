@@ -5,21 +5,30 @@ package com.bhn.adhawk.beans;
  */
 public class User {
 
-    public Integer id;
-    public String userName;
-    public String password;
-    public String phoneNumber;
-    public String creditCardNumber;
-    public Integer cvv;
-    public String month;
-    public String year;
-    public Integer bhnCredit;
+    private String id;
+    private String userName;
+    private String password;
+    private String phoneNumber;
+    private String creditCardNumber;
+    private Integer cvv;
+    private String month;
+    private String year;
+    private Integer bhnCredit;
+    private String shareFrom;
 
-    public Integer getId() {
+    public String getShareFrom() {
+        return shareFrom;
+    }
+
+    public void setShareFrom(String shareFrom) {
+        this.shareFrom = shareFrom;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

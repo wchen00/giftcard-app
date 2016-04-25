@@ -5,13 +5,12 @@ import com.bhn.adhawk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.*;
+import javax.ws.rs.QueryParam;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user")
@@ -23,57 +22,54 @@ public class UserManagementController {
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public String showAllAdHawkUsers(Model model) {
 
+        if(userService.findAll().size() <= 0) {
+            addUsers();
+        }
         model.addAttribute("users", userService.findAll());
 
         return "users/list";
     }
 
-    @RequestMapping(value = "/users", method = RequestMethod.POST)
-    public String saveOrUpdateAdHawkUser(@ModelAttribute("userForm") @Validated User user, Model model) {
+    private void addUsers() {
 
-        userService.saveOrUpdate(user);
+        User user1 = new User();
+        user1.setPhoneNumber("999-999-9999");
+        user1.setUserName("user1");
+        user1.setBhnCredit(1000);
+        userService.save(user1);
 
-        return "redirect:/users/" + user.getId();
+
+        User user2 = new User();
+        user2.setPhoneNumber("888-888-8888");
+        user2.setUserName("user2");
+        user2.setBhnCredit(500);
+
+        userService.save(user2);
     }
 
     // show update form
-    @RequestMapping(value = "/users/{id}/update", method = RequestMethod.GET)
-    public String showUpdateAdHawkUserForm(@PathVariable("id") int id, Model model) {
+    @RequestMapping(value = "/share", method = RequestMethod.GET)
+    public String shareBhnCredit(@QueryParam("id") String id, Model model) {
 
+        System.out.println("shareBhnCredit : user to find :"+id);
         User user = userService.findById(id);
-        model.addAttribute("userForm", user);
 
-        return "users/userform";
-
-    }
-
-    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
-    public String showUser(@PathVariable("id") int id, Model model) {
-
-
-        User user = userService.findById(id);
-        if (user == null) {
-            model.addAttribute("css", "danger");
-            model.addAttribute("msg", "User not found");
-        }
+        System.out.println("shareBhnCredit : user to find :"+user.getUserName());
+        user.setShareFrom(user.getId());
         model.addAttribute("user", user);
 
-        return "users/show";
+        return "users/userform";
 
     }
 
-    @RequestMapping(value = "/users/add", method = RequestMethod.GET)
-    public String showAddUserForm(Model model) {
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String saveAndUpdateCredit(@ModelAttribute(value="user") User user, Model model) {
 
-        User user = new User();
+        System.out.println("user "+user.getBhnCredit()+":"+user.getPhoneNumber()+":"+user.getShareFrom());
+        userService.saveOrUpdate(user);
+        model.addAttribute("users", userService.findAll());
 
-        // set default value
-        user.setUserName("user123");
-        user.setPassword("password");
-        user.setPhoneNumber("(999) 999-9999");
-        model.addAttribute("userForm", user);
-
-        return "users/userform";
+        return "users/list";
 
     }
 
@@ -81,7 +77,6 @@ public class UserManagementController {
     public String createUser( @ModelAttribute("userRegistration") User user, Map<String,Object> model) {
 
         User userRegistration = new User();
-
         model.put("userRegistration", userRegistration);
 
         return "list";

@@ -50,8 +50,8 @@
                     </c:forEach>--%>
                 </td>
                 <td>
-                    <spring:url value="/users/${user.id}/share" var="deleteUrl" />
-                    <spring:url value="/users/${user.id}/redeem" var="updateUrl" />
+                    <spring:url value="/users/share" var="deleteUrl" />
+                    <spring:url value="/users/redeem" var="updateUrl" />
 
                     <button class="btn btn-info"
                             onclick="location.href='${userUrl}'">Share</button>
