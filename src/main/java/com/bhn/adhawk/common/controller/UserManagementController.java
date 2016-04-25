@@ -67,8 +67,9 @@ public class UserManagementController {
 
         System.out.println("user "+user.getBhnCredit()+":"+user.getPhoneNumber()+":"+user.getShareFrom());
         userService.saveOrUpdate(user);
+        model.addAttribute("users", userService.findAll());
 
-        return "users/userform";
+        return "users/list";
 
     }
 
