@@ -1,5 +1,6 @@
 package com.bhn.adhawk.service;
 
+import com.bhn.adhawk.beans.Retailer;
 import com.bhn.adhawk.beans.User;
 import com.bhn.adhawk.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +71,21 @@ public class UserService {
         {
             System.out.println("Cannot process transactions. Funds are not sufficient");
         }
+
+    }
+
+    public List<Retailer>  getAllRetailers(String userId){
+
+        List<Retailer> retailers = userDao.getRetailers(userId);
+
+        System.out.println("Retailer for users " +retailers.size());
+
+        return retailers;
+    }
+
+    public void addNewRetailer(String userId, Retailer retailer) {
+
+        userDao.addRetailer(userId, retailer);
 
     }
 

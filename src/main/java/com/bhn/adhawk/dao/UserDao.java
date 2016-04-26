@@ -4,6 +4,7 @@ package com.bhn.adhawk.dao;
  * Created by dnaga00 on 4/21/16.
  */
 
+import com.bhn.adhawk.beans.Retailer;
 import com.bhn.adhawk.beans.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -21,6 +22,7 @@ public class UserDao  {
     NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     HashMap<String, User> users = new HashMap<>();
+    HashMap<String, List<Retailer>> retailers = new HashMap<>();
 
     @Autowired
     public void setNamedParameterJdbcTemplate(
@@ -105,7 +107,7 @@ public class UserDao  {
         System.out.println("User phone number "+user.getPhoneNumber());
         user.setId(user.getPhoneNumber());
         users.put(user.getPhoneNumber(), user);
-        System.out.println("Saving user with phone number "+user.getId());
+        System.out.println("Saving user with phone number " + user.getId());
 
     }
 
@@ -114,7 +116,7 @@ public class UserDao  {
 /*        String sql = "UPDATE USERS SET BHNCREDIT=:bhnCredit, PHONENUMBER=:phoneNumber";
         namedParameterJdbcTemplate.update(sql, getSqlParameterByModel(user));*/
 
-        System.out.println("Updating user "+user.getPhoneNumber()+":"+user.getBhnCredit());
+        System.out.println("Updating user " + user.getPhoneNumber() + ":" + user.getBhnCredit());
         users.put(user.getId(), user);
 
     }
@@ -135,6 +137,46 @@ public class UserDao  {
         paramSource.addValue("bhnCredit", user.getBhnCredit());
 
         return paramSource;
+    }
+
+    public void addRetailer(String userId, Retailer retailer) {
+
+        System.out.println("New Retailer name is " +retailer.getRetailerName() + ":" +retailer.getCardNumber()
+                            +":"+retailer.getAmount()+":"+userId);
+
+        List<Retailer> existingRetailers = new ArrayList<>();
+
+        if(retailers.size() <= 0)
+        {
+            existingRetailers.add(retailer);
+        }else {
+
+            existingRetailers = retailers.get(userId);
+            if(existingRetailers == null) {
+                existingRetailers = new ArrayList<>();
+            }
+            existingRetailers.add(retailer);
+
+        }
+
+        retailers.put(userId, existingRetailers);
+
+        User user = users.get(userId);
+        System.out.println("User credit is " +user.getBhnCredit());
+        user.setBhnCredit(user.getBhnCredit() - retailer.getAmount());
+        this.save(user);
+
+        retailers.put(userId, existingRetailers);
+
+    }
+
+    public List<Retailer> getRetailers(String userId) {
+        System.out.println("Retailer for users " +userId);
+        List<Retailer> result = new ArrayList<Retailer>( retailers.get(userId));
+
+        System.out.println("Retailer for users " +result.size());
+
+        return result;
     }
 /*
     private static final class UserMapper implements RowMapper<User> {

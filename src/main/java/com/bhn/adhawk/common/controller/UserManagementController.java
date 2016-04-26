@@ -1,5 +1,6 @@
 package com.bhn.adhawk.common.controller;
 
+import com.bhn.adhawk.beans.Retailer;
 import com.bhn.adhawk.beans.User;
 import com.bhn.adhawk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +73,34 @@ public class UserManagementController {
         return "users/list";
 
     }
+
+
+    //Show update form
+    @RequestMapping(value = "/redeem", method = RequestMethod.GET)
+    public String redeemCard(@QueryParam("id") String id, Model model) {
+
+        System.out.println(" redeem BhnCredit : user to find :"+id);
+        User user = userService.findById(id);
+
+        Retailer retailer = new Retailer();
+        retailer.setUserId(user.getPhoneNumber());
+        model.addAttribute("retailer", retailer);
+
+        return "users/redeemform";
+
+    }
+
+    @RequestMapping(value = "/retailerAdd", method = RequestMethod.POST)
+    public String generateRetailerCard(@ModelAttribute(value="user") Retailer retailer, Model model) {
+
+        retailer.setCardNumber(453847);
+        userService.addNewRetailer(retailer.getUserId(), retailer);
+        model.addAttribute("retailers", userService.getAllRetailers(retailer.getUserId()));
+
+        return "users/retailer";
+
+    }
+
 
     @RequestMapping(method = RequestMethod.POST)
     public String createUser( @ModelAttribute("userRegistration") User user, Map<String,Object> model) {
