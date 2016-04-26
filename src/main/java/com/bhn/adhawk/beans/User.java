@@ -16,6 +16,7 @@ public class User {
     private Integer bhnCredit;
     private String shareFrom;
 
+
     public String getShareFrom() {
         return shareFrom;
     }

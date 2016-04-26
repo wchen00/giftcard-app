@@ -158,7 +158,18 @@ img.adHawkLogo { width: 54px; }
     clear: both;
     float: right;
     margin: 10px 0;
-    width: 75%;
+    width: 60%;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    border-radius: 24px;
+}
+.messageToRecipientIcon {
+    background: #d94878 none repeat scroll 0 0;
+    border: 1px solid #777;
+    clear: both;
+    float: right;
+    margin: 10px 0;
+    width: 30%;
     -webkit-border-radius: 24px;
     -moz-border-radius: 24px;
     border-radius: 24px;
@@ -188,6 +199,11 @@ img.smiley {
     margin: auto;
     width: 75px;
 }
+img.nearby {
+     display: block;
+     margin: auto;
+     width: 75px;
+ }
 footer nav p[role="contentinfo"] {
     font-size: 0.8em;
     margin: 5px 0;

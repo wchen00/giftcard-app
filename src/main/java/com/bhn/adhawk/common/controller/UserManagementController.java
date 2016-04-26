@@ -15,6 +15,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/user")
+
 public class UserManagementController {
 
     @Autowired
@@ -23,7 +24,7 @@ public class UserManagementController {
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public String showAllAdHawkUsers(Model model) {
 
-        if(userService.findAll().size() <= 0) {
+        if (userService.findAll().size() <= 0) {
             addUsers();
         }
         model.addAttribute("users", userService.findAll());
@@ -52,10 +53,10 @@ public class UserManagementController {
     @RequestMapping(value = "/share", method = RequestMethod.GET)
     public String shareBhnCredit(@QueryParam("id") String id, Model model) {
 
-        System.out.println("shareBhnCredit : user to find :"+id);
+        System.out.println("shareBhnCredit : user to find :" + id);
         User user = userService.findById(id);
 
-        System.out.println("shareBhnCredit : user to find :"+user.getUserName());
+        System.out.println("shareBhnCredit : user to find :" + user.getUserName());
         user.setShareFrom(user.getId());
         model.addAttribute("user", user);
 
@@ -64,9 +65,9 @@ public class UserManagementController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String saveAndUpdateCredit(@ModelAttribute(value="user") User user, Model model) {
+    public String saveAndUpdateCredit(@ModelAttribute(value = "user") User user, Model model) {
 
-        System.out.println("user "+user.getBhnCredit()+":"+user.getPhoneNumber()+":"+user.getShareFrom());
+        System.out.println("user " + user.getBhnCredit() + ":" + user.getPhoneNumber() + ":" + user.getShareFrom());
         userService.saveOrUpdate(user);
         model.addAttribute("users", userService.findAll());
 
@@ -79,7 +80,7 @@ public class UserManagementController {
     @RequestMapping(value = "/redeem", method = RequestMethod.GET)
     public String redeemCard(@QueryParam("id") String id, Model model) {
 
-        System.out.println(" redeem BhnCredit : user to find :"+id);
+        System.out.println(" redeem BhnCredit : user to find :" + id);
         User user = userService.findById(id);
 
         Retailer retailer = new Retailer();
@@ -91,7 +92,7 @@ public class UserManagementController {
     }
 
     @RequestMapping(value = "/retailerAdd", method = RequestMethod.POST)
-    public String generateRetailerCard(@ModelAttribute(value="user") Retailer retailer, Model model) {
+    public String generateRetailerCard(@ModelAttribute(value = "user") Retailer retailer, Model model) {
 
         retailer.setCardNumber(453847);
         userService.addNewRetailer(retailer.getUserId(), retailer);
@@ -103,7 +104,7 @@ public class UserManagementController {
 
 
     @RequestMapping(method = RequestMethod.POST)
-    public String createUser( @ModelAttribute("userRegistration") User user, Map<String,Object> model) {
+    public String createUser(@ModelAttribute("userRegistration") User user, Map<String, Object> model) {
 
         User userRegistration = new User();
         model.put("userRegistration", userRegistration);

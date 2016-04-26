@@ -6,7 +6,9 @@ package com.bhn.adhawk.beans;
 public class Request {
     private String phonenumber;
     private String amount;
+    private String friendPhonenumber;
     private String message;
+    private String password;
 
     public String getAmount() {
         return amount;
@@ -30,5 +32,21 @@ public class Request {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFriendPhonenumber() {
+        return friendPhonenumber;
+    }
+
+    public void setFriendPhonenumber(String friendPhonenumber) {
+        this.friendPhonenumber = friendPhonenumber;
     }
 }

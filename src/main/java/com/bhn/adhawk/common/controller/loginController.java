@@ -15,7 +15,7 @@ import javax.ws.rs.QueryParam;
 
 @Controller
 @RequestMapping("/login")
-@SessionAttributes({"currentID", "friendPhoneNumber"})
+@SessionAttributes({"currentID", "friendPhoneNumber", "request"})
 public class LoginController {
     @Autowired
     private UserService userService;
@@ -36,7 +36,7 @@ public class LoginController {
 //        user.setId(phoneNumber);
 //        userService.saveOrUpdate(user);
         modelMap.addAttribute("currentID", request.getPhonenumber());
-        return "chat/chat";
+        return "contact/contact";
     }
 
 }

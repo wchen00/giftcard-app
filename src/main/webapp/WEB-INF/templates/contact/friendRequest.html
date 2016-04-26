@@ -45,7 +45,7 @@
         <div role="navigation" class="siteNav">
             <a href="index"><img src="/giftcardApp/images/backicon.png" alt="" class="adHawkLogo"/></a>
 
-            <h1>Regitster & Login</h1>
+            <h1>Contact</h1>
 
             <div id="mobileNav">
                 <a href="#"><img alt="Menu" src="/giftcardApp/images/menu-icon.png"></a>
@@ -66,26 +66,51 @@
             <section id="mainContent" role="main" class="mainContent fullWidth">
                 <div id="main">
                     <div id="scrollingsection">
-                        <form name="login" id="login" action="#" th:action="@{/login/action}"
+                        <form name="login" id="login" action="#" th:action="@{/contact/friendRequest}"
                               th:object="${request}" method="post">
                             <div>
-                                <h3>Phone</h3>
-                                <input type="text" th:field="*{phonenumber}"/>
-                            </div>
-                            <div>
-                                <h3>Password</h3>
-                                <input type="password" th:field="*{password}"/>
+                                <h3>Send a message</h3>
+                                <p>
+                                    <input type="text" th:field="*{message}"/>
+                                </p>
+                                <h3>Do you want give him a coin</h3>
+                                <p>
+                                    <input type="text" th:field="*{amount}"/>
+                                </p>
+                                <input type="hidden" name="phoneNumber" id="phonenumber" value=""
+                                       th:field="*{phonenumber}"/>
+                                <!--<p><img src="/giftcardApp/images/add-group.png" alt="" class="smiley"/></p>-->
+                                <input value="Yes" type="submit" value="send" alt="Submit"
+                                       name="submit" width="36" height="36"/>
+
                             </div>
                             <!--<input type="text" th:field="*{phonenumber}"/>-->
-                            <div>
-                                <input type="submit" value="Login" name="submit"/>
-                            </div>
-                            <!--<div class="messageToRecipient">-->
-                            <!--<p>me:Bye.</p>-->
+                            <!--<div>-->
+                            <!--<input src="/giftcardApp/images/smiley-1-512.png" type="submit" value="add"-->
+                            <!--name="submit"/>-->
                             <!--</div>-->
 
+                            <!--<div class="messageToRecipient">-->
+                            <!--<p><img src="/giftcardApp/images/smiley-1-512.png" alt="" class="smiley"/></p>-->
+                            <!--</div>-->
+                            <!--<h3> Amita </h3><h4>oh my god</h4>-->
+
+                            <!--<h3> Carlos …</h3><h4>ha ha</h4>-->
+
+                            <!--<h3> Deeksha </h3><h4>ohavailable</h4>-->
+
+                            <!--<h3> Doug </h3><h4>Tomorrow is my birthday</h4>-->
+
+                            <!--<h3> Muneera </h3><h4>available</h4>-->
+
+                            <!--<h3> Muneera </h3><h4>available</h4>-->
+
+                            <!--<h3> Sita available</h3><h4>available</h4>-->
+
+                            <!--<h3> Tom available</h3><h4>available</h4>-->
+
                             <!--<div class="messageFromRecipient">-->
-                            <!--<p>Doug: Bye</p>-->
+                            <!--<p>Thank you. Walter.</p>-->
                             <!--</div>-->
 
                             <!--<div class="messageToRecipient">-->
@@ -99,7 +124,6 @@
                             <!--<div class="messageFromRecipient">-->
                             <!--<p>Thank you. Walter.</p>-->
                             <!--</div>-->
-                        </form>
                     </div>
                 </div>
             </section>

@@ -66,28 +66,77 @@
             <section id="mainContent" role="main" class="mainContent fullWidth">
                 <div id="main">
                     <div id="scrollingsection">
-                        <form name="addFriendForm" id="addFriendForm" action="#" th:action="@{/contact/add}"
-                              method="post">
+                        <form name="login" id="login" action="#" th:action="@{/contact/addContact}"
+                              th:object="${request}" method="post">
+                            <div>
+                                <!--<h3>Phone</h3>-->
+                                <input type="text" th:field="*{friendPhonenumber}"/>
+                                <!--<p><img src="/giftcardApp/images/add-group.png" alt="" class="smiley"/></p>-->
+                                <input src="/giftcardApp/images/add-group.png" type="image" value="add" alt="Submit"
+                                       name="submit" width="36" height="36"/>
 
-                            <div class="messageToRecipient">
-                                <p><img src="/giftcardApp/images/smiley-1-512.png" alt="" class="smiley"/></p>
+                            </div>
+                            <!--<input type="text" th:field="*{phonenumber}"/>-->
+                            <!--<div>-->
+                            <!--<input src="/giftcardApp/images/smiley-1-512.png" type="submit" value="add"-->
+                            <!--name="submit"/>-->
+                            <!--</div>-->
+
+                            <!--<div class="messageToRecipient">-->
+                            <!--<p><img src="/giftcardApp/images/smiley-1-512.png" alt="" class="smiley"/></p>-->
+                            <!--</div>-->
+                            <div>
+                                <h4> Amita </h4>
+
+                                <p>oh my god</p>
+                            </div>
+                            <div>
+                                <h4> Carlos </h4>
+
+                                <p>ha ha</p>
+
+                            </div>
+                            <div>
+                                <h4> Deeksha </h4>
+
+                                <p>available</p>
+                            </div>
+                            <div>
+                                <h4> Doug </h4>
+
+                                <p>Tomorrow is my birthday</p>
+                            </div>
+                            <div>
+                                <h4> Muneera </h4>
+
+                                <p>available</p>
                             </div>
 
-                            <div class="messageFromRecipient">
-                                <p>Thank you. Walter.</p>
-                            </div>
+                            <div>
+                                <h4> Sita available</h4>
 
-                            <div class="messageToRecipient">
-                                <p>Hey Doug. Happy birthday.</p>
+                                <p>available</p>
                             </div>
+                            <div>
+                                <h4> Tom available</h4>
 
-                            <div class="messageFromRecipient">
-                                <p><img src="/giftcardApp/images/smiley-1-512.png" alt="" class="smiley"/></p>
+                                <p>available</p>
                             </div>
+                            <!--<div class="messageFromRecipient">-->
+                            <!--<p>Thank you. Walter.</p>-->
+                            <!--</div>-->
 
-                            <div class="messageFromRecipient">
-                                <p>Thank you. Walter.</p>
-                            </div>
+                            <!--<div class="messageToRecipient">-->
+                            <!--<p>Hey Doug. Happy birthday.</p>-->
+                            <!--</div>-->
+
+                            <!--<div class="messageFromRecipient">-->
+                            <!--<p><img src="/giftcardApp/images/smiley-1-512.png" alt="" class="smiley"/></p>-->
+                            <!--</div>-->
+
+                            <!--<div class="messageFromRecipient">-->
+                            <!--<p>Thank you. Walter.</p>-->
+                            <!--</div>-->
                     </div>
                 </div>
             </section>

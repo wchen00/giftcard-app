@@ -66,29 +66,29 @@
             <section id="mainContent" role="main" class="mainContent fullWidth">
                 <div id="main">
                     <div id="scrollingsection">
-                        <div class="messageToRecipient">
-                            <p>me:Bye.</p>
+                        <div class="messageToRecipient" th:object="${request}">
+                            <p th:text="${request.message}"></p>
                         </div>
 
                         <!--<div class="messageToRecipient">-->
                         <!--<p><img src="/giftcardApp/images/smiley-1-512.png" alt="" class="smiley"/></p>-->
                         <!--</div>-->
 
-                        <div class="messageFromRecipient">
-                            <p>Doug: Bye</p>
+                        <!--<div class="messageFromRecipient">-->
+                        <!--<p>Doug: Bye</p>-->
+                        <!--</div>-->
+
+                        <!--<div class="messageToRecipient">-->
+                        <!--<p>Hey Doug. Happy birthday.</p>-->
+                        <!--</div>-->
+
+                        <div class="messageToRecipientIcon">
+                            <p><img src="/giftcardApp/images/coin-us-dollar-icon.png" alt="" class="smiley"/></p>
                         </div>
 
-                        <div class="messageToRecipient">
-                            <p>Hey Doug. Happy birthday.</p>
-                        </div>
-
-                        <div class="messageFromRecipient">
-                            <p><img src="/giftcardApp/images/smiley-1-512.png" alt="" class="smiley"/></p>
-                        </div>
-
-                        <div class="messageFromRecipient">
-                            <p>Thank you. Walter.</p>
-                        </div>
+                        <!--<div class="messageFromRecipient">-->
+                        <!--<p>Thank you. Walter.</p>-->
+                        <!--</div>-->
                     </div>
                 </div>
             </section>
@@ -97,10 +97,14 @@
     <footer>
         <nav role="navigation">
             <ul>
-                <li><a href="/giftcardApp/chat"><img src="/giftcardApp/images/chat.png" alt="chat" class="chat" /><span>Chat</span></a></li>
-                <li><a href="/giftcardApp/contact"><img src="/giftcardApp/images/phonebook.png" alt="contact" class="chat" /><span>Contact</span></a></li>
-                <li><a href="/giftcardApp/nearby"><img src="/giftcardApp/images/cart.png" alt="nearby" class="chat"/><span>Nearby</span></a></li>
-                <li><a href="/giftcardApp/user/users"><img src="/giftcardApp/images/account.jpg" alt="balance" class="chat"/><span>Account</span></a></li>
+                <li><a href="/giftcardApp/chat"><img src="/giftcardApp/images/chat.png" alt="chat" class="chat"/><span>Chat</span></a>
+                </li>
+                <li><a href="/giftcardApp/contact"><img src="/giftcardApp/images/phonebook.png" alt="contact"
+                                                        class="chat"/><span>Contact</span></a></li>
+                <li><a href="/giftcardApp/nearby"><img src="/giftcardApp/images/cart.png" alt="nearby"
+                                                       class="chat"/><span>Nearby</span></a></li>
+                <li><a href="/giftcardApp/user/users"><img src="/giftcardApp/images/account.jpg" alt="balance"
+                                                           class="chat"/><span>Account</span></a></li>
             </ul>
             <p role="contentinfo">&#169;
                 <script>document.write(new Date().getFullYear())</script>

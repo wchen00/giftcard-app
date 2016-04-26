@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @RequestMapping("/chat")
-@SessionAttributes({"currentID", "friendPhoneNumber"})
+@SessionAttributes({"currentID", "friendPhoneNumber", "request"})
 public class ChatController {
 
     @RequestMapping(method = RequestMethod.GET)
@@ -16,7 +16,8 @@ public class ChatController {
         modelMap.addAttribute("currentID", "cicidi");
         return "/chat/chat";
     }
-    @RequestMapping(value="/chatWindow",method = RequestMethod.GET)
+
+    @RequestMapping(value = "/chatWindow", method = RequestMethod.GET)
     public String getChatWindow(ModelMap modelMap) {
         modelMap.addAttribute("currentID", "cicidi");
         return "/chat/chatWindow";

@@ -21,7 +21,7 @@ import java.util.Date;
 
 @Controller
 @RequestMapping("/contact")
-@SessionAttributes({"currentID", "friendPhoneNumber"})
+@SessionAttributes({"currentID", "friendPhoneNumber", "request"})
 public class ContactController {
 
     @Autowired
@@ -33,12 +33,14 @@ public class ContactController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String getContact(ModelMap modelMap) {
+        Request request = new Request();
+        modelMap.addAttribute("request", request);
         return "contact/contact";
     }
 
-    @RequestMapping(value = "/addContact/", method = RequestMethod.POST)
-    public String addContact(@ModelAttribute(value = "request") Request request, ModelMap modelMap) {
-        String friendPhone = request.getPhonenumber();
+    @RequestMapping(value = "/friendRequest", method = RequestMethod.POST)
+    public String friendRequest(@ModelAttribute(value = "request") Request request, ModelMap modelMap) {
+        String friendPhone = request.getFriendPhonenumber();
         String amount = request.getAmount();
         String currentID = (String) modelMap.get("currentID");
         transferService.transfer(currentID, friendPhone, Double.valueOf(amount));
@@ -55,8 +57,32 @@ public class ContactController {
             e.printStackTrace();
         }
         modelMap.addAttribute("friendPhoneNumber", message);
+        modelMap.addAttribute("request", request);
+        return "chat/chatWindow";
+    }
+
+    @RequestMapping(value = "/addContact", method = RequestMethod.POST)
+    public String addContact(@ModelAttribute(value = "request") Request request, ModelMap modelMap) {
+//        String friendPhone = request.getPhonenumber();
+//        String amount = request.getAmount();
+//        String currentID = (String) modelMap.get("currentID");
+//        transferService.transfer(currentID, friendPhone, Double.valueOf(amount));
+//        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+//// Get the date today using Calendar object.
+//        Date today = Calendar.getInstance().getTime();
+//// Using DateFormat format method we can create a string
+//// representation of a date with the defined format.
+//        String reportDate = df.format(today);
+//        String message = "Hi someone send you a gift card at" + today;
+//        try {
+//            smsService.sendSMS(friendPhone, request.getMessage());
+//        } catch (TwilioRestException e) {
+//            e.printStackTrace();
+//        }
+        modelMap.addAttribute("request", request);
         return "contact/friendRequest";
     }
+
 
     @RequestMapping(value = "/sendRequest/", method = RequestMethod.POST)
     public String sendRequest(

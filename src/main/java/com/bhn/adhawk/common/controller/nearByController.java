@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @RequestMapping("/nearby")
-@SessionAttributes({"currentID", "friendPhoneNumber"})
+@SessionAttributes({"currentID", "friendPhoneNumber", "request"})
 public class nearByController {
 
     @RequestMapping(method = RequestMethod.GET)
