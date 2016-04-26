@@ -1,0 +1,485 @@
+/*
+BHN External Portal Styles - AdHawk UI
+CONTENTS - ADHAWK.CSS
+-----------------------------------------
+1. ADA Compliance
+2. HEADER
+3. FOOTER
+4.
+14. IE
+15. MEDIA QUERIES / RESPONSIVE ADJUSTMENTS
+*/
+
+
+/* 1. ADA Compliance
+----------------------------------------------------------------------------------------*/
+/* a:focus { outline: thin dotted; } */
+input:focus { outline: medium none navy; }
+
+
+/* 2. HEADER
+----------------------------------------------------------------------------------------*/
+
+
+
+/* 3. FOOTER
+---------------------------------------------------------------------------------------*/
+#toTop {
+    display:none;
+    text-decoration:none;
+    position:fixed;
+    bottom:10px;
+    right:15px;
+    overflow:hidden;
+    width:51px;
+    height:51px;
+    line-height: 50px;
+    border:none;
+    z-index: 1111;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    background-color: #808285;
+    border: 1px solid #e1e1e1;
+    color: #ffffff;
+    opacity: 1;
+    text-align: center;
+}
+#toTop:hover {
+    background-color: #f8f8f8;
+    border: 1px solid #bcbdbf;
+    color: #1376bd;
+    text-align: center;
+}
+#toTop:before {
+    display: inline-block;
+    width: auto;
+    margin: 13px 0.2em 0;
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    content: '\e809';
+    font-size: 1.8em;
+}
+#toTop:active, #toTop:focus { outline:none; }
+.clear {
+    clear: both;
+}
+.italic {
+    font-style: italic;
+}
+
+
+
+/* 5. ADHAWK PAGES
+----------------------------------------------------------------------------------------*/
+.mainContainer {
+    min-width: 320px;
+    /* overflow: scroll; */
+    width: 100%;
+    height: 100%;
+    background-color: #ebf5c3;
+    background-image: url(../images/spots-background-light-circles-1152x864.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: -webkit-radial-gradient(circle, #b3f2d7, #3ca5ba);
+    background: -moz-radial-gradient(circle, #b3f2d7, #3ca5ba);
+    background: -ms-radial-gradient(circle, #b3f2d7, #3ca5ba);
+}
+header {
+    width: 100%;
+    min-width: 320px;
+    background-color: #1a82f7;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1a82f7), to(#2F2727));
+    background: -webkit-linear-gradient(top, #2F2727, #1a82f7);
+    background: -moz-linear-gradient(top, #2F2727, #1a82f7);
+    background: -ms-linear-gradient(top, #2F2727, #1a82f7);
+    background: -o-linear-gradient(top, #2F2727, #1a82f7);
+}
+.siteNav[role="navigation"] img {
+    margin: 0 0 0 12px;
+}
+img.adHawkLogo { width: 54px; }
+[role="navigation"].siteNav h1 {
+    color: #eee;
+    font-size: 2em;
+    height: auto;
+    margin: 15px auto;
+    padding: 0 15px;
+    text-align: left;
+    width: auto;
+    border-right: medium none;
+}
+#mobileNav {
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 11px;
+}
+#mobileNav img {
+    width: 32px;
+}
+.siteNav [role="menubar"] a, #menubar a {
+    color: #ddd;
+    font-weight: normal;
+}
+#menubar ul { text-align: right; }
+#menubar li { display: inline-block;margin: 0 5px;}
+[role="navigation"].siteNav a.active, #menubar a.active { color: #fff; }
+[role="navigation"].siteNav a:hover, #menubar a:hover { color: #fff; }
+.siteNav[role="navigation"] nav, #menubar {
+    bottom: auto;
+    float: right;
+    position: absolute;
+    right: 0;
+    z-index: 1111;
+    margin: 15px;
+}
+#contentWrapper {
+    margin: 52px 0;
+    z-index: 1;
+}
+.fullWidth {
+    margin: 8px 20px;
+}
+#scrollingsection {
+    clear: both;
+    float: left;
+    width: 100%;
+}
+.messageToRecipient {
+    background: #78d948 none repeat scroll 0 0;
+    border: 1px solid #777;
+    clear: both;
+    float: right;
+    margin: 10px 0;
+    width: 75%;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    border-radius: 24px;
+}
+.messageToRecipient p {
+    margin: 5px 12px;
+    font-size: 1.1em;
+}
+.messageFromRecipient {
+    background: #0f5cad none repeat scroll 0 0;
+    width: 75%;
+    border: 1px solid #777;
+    float: left;
+    clear: both;
+    margin: 10px 0;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    border-radius: 24px;
+}
+.messageFromRecipient p {
+    margin: 5px 12px;
+    color: #fff;
+    font-size: 1.1em;
+}
+img.smiley {
+    display: block;
+    margin: auto;
+    width: 75px;
+}
+footer nav p[role="contentinfo"] {
+    font-size: 0.8em;
+    margin: 5px 0;
+}
+footer {
+    position: fixed;
+}
+footer nav {
+    background-color: #1a82f7;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2F2727), to(#1a82f7));
+    background: -webkit-linear-gradient(top, #1a82f7, #2F2727);
+    background: -moz-linear-gradient(top, #1a82f7, #2F2727);
+    background: -ms-linear-gradient(top, #1a82f7, #2F2727);
+    background: -o-linear-gradient(top, #1a82f7, #2F2727);
+    padding: 5px 0;
+}
+img.chat { width: 60px; }
+img.balance { width: 60px; }
+footer nav ul li span { padding: 5px;}
+
+/* iPad portrait width or narrower */
+@media screen and (max-width: 770px) {
+    footer nav ul li span { display: none;}
+    footer nav a { display: block; }
+    footer nav li { width: 22%; }
+    footer nav p[role="contentinfo"] { display: none;}
+    .siteNav[role="navigation"] h1 {
+        text-align: center;
+        width: 66%;
+    }
+    #mobileNav { display: block;}
+    ul#siteNav { display: none;}
+    .siteNav[role="navigation"] nav, #menubar {
+        background: #1a82f7 none repeat scroll 0 0;
+        position: fixed;
+        text-align: left;
+        width: 130px;
+        top: 54px;
+        z-index: 11111;
+        margin-top: 1px;
+    }
+    .siteNav[role="navigation"] li, #menubar li {
+        display: block;
+        height: auto;
+        line-height: 1em;
+        border-bottom: 1px solid #ccc;
+        margin: 0;
+        padding: 10px;
+    }
+    .siteNav[role="navigation"] ul, #menubar ul {
+        text-align: center;
+    }
+}
+
+
+
+
+/* 6. MODALS
+----------------------------------------------------------------------------------------*/
+/* prevent the main page from scrolling while a subpage is open */
+body.modal-open { overflow: hidden; }
+
+.text-right {	text-align: right; }
+.text-center { text-align: center; }
+.fail, .red { color: red; font-weight: normal;}
+.pass, .green {	color: green; }
+#actionSpeedbump.modalContent ul {
+    list-style-type: none;
+    margin: 5px 75px 8px;
+    padding: 0;
+    font-size: 0.85em;
+}
+#actionSpeedbump.modalContent p {
+    margin: 0 0 5px;
+    padding: 0;
+    font-size: 0.85em;
+    text-align: center;
+}
+
+#simplemodal-overlay {
+    opacity: 0.3 !important;
+}
+#simplemodal-container {
+    min-width: 250px;
+    min-height: 100px;
+    max-width: 500px;
+    max-height: 500px;
+    height: auto !important;
+    /* width: auto !important; */
+}
+.modalContent {
+    max-width: 500px;
+    min-width: 275px;
+}
+
+
+
+#wait-container {
+    display: none;
+    background-color: #fff;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    -moz-box-shadow: 3px 3px 3px #5f5f5f;
+    -webkit-box-shadow: 3px 3px 3px #5f5f5f;
+    box-shadow: 3px 3px 3px #5f5f5f;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top: 50%;
+    left: 500px; /* fallback for browsers without support for calc() */
+    left: calc(50% - 138px);
+    height: 100px;
+    width: 275px;
+    z-index: 1003;
+}
+#ajaxloading.modalContent {
+    display: block;
+}
+#ajaxloading.modalContent h3, #ajaxloading.modalContent .message {
+    text-align: center;
+}
+
+
+/* 7. LOGIN PAGE
+----------------------------------------------------------------------------------------*/
+.loginMessage, .loginError {
+    color: red;
+    margin: 10px auto;
+    text-align: center;
+    display: block;
+    font-size: 1.1em;
+}
+
+
+/* 8. HOME PAGE
+----------------------------------------------------------------------------------------*/
+.homePageLinks {
+    display: table;
+    margin: 30px auto;
+}
+.homePageLinks ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.homePageLinks ul li {
+    border: 3px solid #ffffff;
+    border-radius: 8px;
+    box-shadow: none;
+    float: left;
+    margin: 20px;
+    overflow: hidden;
+    padding: 0;
+}
+.homePageLinks ul li:hover { border-color: #e2e2e2; }
+.homePageLinks ul li.selected {
+    border: solid 1px #0179bf;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px #0179bf;
+}
+.homePageLinks .ciLinkIcon {
+    font-size: 2.2em;
+    display: block;
+}
+.homePageLinks a,
+.homePageLinks a:visited {
+    color: #808585;
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* 11. CONFIGURATION PAGE
+----------------------------------------------------------------------------------------*/
+.configuration #actionSpeedbump-Add input::-webkit-outer-spin-button,
+.configuration #actionSpeedbump-Add input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.configuration #actionSpeedbump-Add input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+
+
+/* 14. IE
+----------------------------------------------------------------------------------------*/
+
+/* Menu Icon */
+.lt-ie9 .iconMenu:before, .lt-ie10 .iconMenu:before {
+    background: #fff url("../images/portalSprite.png") no-repeat scroll -11px -55px;
+    content: " ";
+    height: 25px;
+    left: -6px;
+    position: absolute;
+    top: -1px;
+    width: 28px;
+}
+/* remove the default clear x on IE input fields */
+input::-ms-clear {
+    width: 0;
+    height: 0;
+}
+
+/* Fix Fontello icon font issues in IE9 */
+.lt-ie10 [class^="icon"]:before, .lt-ie10 [class*=" icon"]:before, .lt-ie10 #simplemodal-container a.modalCloseImg::before { display: none; }
+.lt-ie10 [class^="icon"], .lt-ie10 [class*=" icon"] {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    margin: auto;
+    overflow: hidden;
+    cursor: pointer;
+}
+.lt-ie10 .iconExport { background: transparent url("../images/iconExport.png") no-repeat scroll 0 0; display: block; height: 50px; width: 60px;}
+.lt-ie10 .iconHome { background: transparent url("../images/portalSprite.png") no-repeat scroll -46px -15px; height: 21px !important; }
+.lt-ie10 .iconKey { background: transparent url("../images/iconSprites.gif") no-repeat scroll 5px -68px; }
+.lt-ie10 .iconAttention { background: transparent url("../images/iconSprites.gif") no-repeat scroll 0 -2px; }
+.lt-ie10 .iconCog { background: transparent url("../images/iconSprites.gif") no-repeat scroll 0 -47px; }
+.lt-ie10 .iconCheck { background: transparent url("../images/iconSprites.gif") no-repeat scroll -4px -134px; text-align: right; width: 31px; }
+.lt-ie10 .iconCancel { background: transparent url("../images/iconSprites.gif") no-repeat scroll -6px -153px; text-align: right; width: 55px; }
+.lt-ie10 .iconTrash { background: transparent url("../images/iconSprites.gif") no-repeat scroll -3px -170px; text-align: right; width: 13px; }
+.lt-ie10 .iconComment { background: transparent url("../images/iconSprites.gif") no-repeat scroll 0px -193px; text-align: right; width: 55px; }
+.lt-ie10 #simplemodal-container a.modalCloseImg { background: transparent url("../images/iconSprites.gif") no-repeat scroll 0 -109px; }
+
+/* Same fix needed for IE10 and IE11: */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    [class^="icon"]:before, [class*=" icon"]:before, #simplemodal-container a.modalCloseImg::before { display: none; }
+    [class^="icon"], [class*=" icon"] {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        vertical-align: middle;
+        margin: auto;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .iconExport { background: transparent url("../images/iconExport.png") no-repeat scroll 0 0; display: block; height: 50px; width: 60px;}
+    .iconHome { background: transparent url("../images/portalSprite.png") no-repeat scroll -46px -15px; height: 21px !important; }
+    .iconKey { background: transparent url("../images/iconSprites.gif") no-repeat scroll 5px -68px; }
+    .iconAttention { background: transparent url("../images/iconSprites.gif") no-repeat scroll 0 -2px; }
+    .iconCog { background: transparent url("../images/iconSprites.gif") no-repeat scroll 0 -47px; }
+    .iconCheck { background: transparent url("../images/iconSprites.gif") no-repeat scroll -4px -134px; text-align: right; width: 31px; }
+    .iconCancel { background: transparent url("../images/iconSprites.gif") no-repeat scroll -6px -153px; text-align: right; width: 55px; }
+    .iconTrash { background: transparent url("../images/iconSprites.gif") no-repeat scroll -3px -170px; text-align: right; width: 13px; }
+    .iconComment { background: transparent url("../images/iconSprites.gif") no-repeat scroll 0px -193px; text-align: right; width: 55px; }
+    #simplemodal-container a.modalCloseImg { background: transparent url("../images/iconSprites.gif") no-repeat scroll 0 -109px; }
+}
+
+/* 15. MEDIA QUERIES / DEVICE AGNOSTIC
+----------------------------------------------------------------------------------------*/
+@media screen and (max-width: 1200px) {
+    .actions .uploadInput label { margin: 2px 5px 8px 0; }
+    #filter {
+        height: auto;
+        min-height: 100px;
+    }
+    #dropbox {
+        margin: 10px 0 0 0;
+        width: calc(100% - 594px);
+    }
+    #inventoryDataloadTableDiv div.dt-buttons {
+        margin: 7px 227px -35px 0;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .bhn-filter-select-title-wrapper {
+        margin: 0 0 5px 0;
+        clear: both;
+    }
+    .bhn-filter-daterange-date-wrapper {
+        clear: left;
+        float: left;
+        margin: 0 0 9px;
+    }
+    .bhn-filter-daterange-mindate-wrapper { margin: 0 0 0 3px; }
+    .bhn-filter-submit-wrapper {
+        clear: none;
+        right: 0;
+    }
+    #filter { min-width: 300px; }
+    .actions .bhn-filter { margin: 0 59px 0 0; }
+    #dropbox {
+        min-width: 356px;
+        width: calc(100% - 420px);
+    }
+}
