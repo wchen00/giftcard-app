@@ -9,6 +9,8 @@ public class Request {
     private String friendPhonenumber;
     private String message;
     private String password;
+    private String merchant;
+    private String redeemAmount;
 
     public String getAmount() {
         return amount;
@@ -48,5 +50,21 @@ public class Request {
 
     public void setFriendPhonenumber(String friendPhonenumber) {
         this.friendPhonenumber = friendPhonenumber;
+    }
+
+    public String getMerchant() {
+        return merchant;
+    }
+
+    public void setMerchant(String merchant) {
+        this.merchant = merchant;
+    }
+
+    public String getRedeemAmount() {
+        return redeemAmount;
+    }
+
+    public void setRedeemAmount(String redeemAmount) {
+        this.redeemAmount = redeemAmount;
     }
 }
